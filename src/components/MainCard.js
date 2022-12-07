@@ -11,11 +11,12 @@ export default function () {
 
     //API call made
      const jokeLoad=()=>{
-        fetch("https://api.icndb.com/jokes/random")
+        fetch("https://icanhazdadjoke.com/slack")
        .then(response => response.json())
        .then(json =>{
            //to update the current card
-           setJoke(json.value['joke'])
+           console.log(json.value['attachments[0]']['text'])
+           setJoke(json.value['fallback'])
            setJokeID(json.value['id'])
            
            //to update the local storage joke object
